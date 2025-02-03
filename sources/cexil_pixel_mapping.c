@@ -1,6 +1,10 @@
-#include "pixel_mapping.h"
+#include "cexil_pixel_mapping.h"
 
-char pixel_mapping[256][3] = {
+char cexil_pixel_mapping[
+  CEXIL_PIXEL_MAPPING_LENGTH
+][
+  CEXIL_PIXEL_MAPPING_STRING_LENGTH
+] = {
   "\u2800",
   "\u2801",
   "\u2802",
