@@ -6,7 +6,7 @@ all: $(EXAMPLES_TO_MAKE)
 clean: $(EXAMPLES_TO_CLEAN)
 
 %/make: %
-	- cd $< && make && cd ../
+	- cd $< && mkdir -p objects bin && make && cd ../
 
 %/clean: %
 	- cd $< && make clean && cd ../
