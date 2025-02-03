@@ -1,0 +1,7 @@
+#ifndef __CEXIL_SPECIFIC_PIXELS_EXAMPLE_H
+#define __CEXIL_SPECIFIC_PIXELS_EXAMPLE_H
+
+int main();
+
+#endif
+
