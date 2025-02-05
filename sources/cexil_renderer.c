@@ -232,6 +232,7 @@ void cexil_renderer_sprite_render(
       );
 
       renderer->pixels[y_index][x_index] = (
+        renderer->pixels[y_index][x_index] +
         sprite->pixels[y][x]
       );
     }
@@ -249,6 +250,14 @@ void cexil_renderer_destroy(
     free(renderer->pixels[y]);
   }
   free(renderer->pixels);
+  
+  for (
+    unsigned int i = 0;
+    i < renderer->sprites_length;
+    ++i
+  ) {
+    cexil_sprite_destroy(renderer->sprites[i]);
+  }
   free(renderer->sprites);
 }
 

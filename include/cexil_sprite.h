@@ -14,7 +14,8 @@ struct cexil_sprite {
 };
 
 void cexil_sprite_initialize(
-  struct cexil_sprite*
+  struct cexil_sprite*,
+  struct cexil_size*
 );
 
 void cexil_sprite_destroy(
