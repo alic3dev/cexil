@@ -20,6 +20,8 @@ renderer->pixels[6][4]
 
 ## building
 
+### library
+
 ```sh
 make
 ```
