@@ -24,3 +24,39 @@ renderer->pixels[6][4]
 make
 ```
 
+### clean
+
+```sh
+make clean
+```
+
+### examples
+
+Each example under the `./examples` directory has an individual make file which will build the output into its corresponding `./bin` directory.
+
+You can also build all examples in one shot using in the root directory
+
+```sh
+make examples
+```
+
+or you can run the follwing within the `./examples` directory
+
+```sh
+make
+```
+
+### all
+
+To build the library + examples
+
+```sh
+make all
+```
+
+To clean the library + examples
+
+```sh
+make clean_all
+```
+
