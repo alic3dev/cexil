@@ -6,5 +6,9 @@ struct cexil_size {
   unsigned int height;
 };
 
+unsigned char cexil_size_set_to_terminal(
+  struct cexil_size*
+);
+
 #endif
 
