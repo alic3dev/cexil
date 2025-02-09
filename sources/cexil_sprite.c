@@ -41,12 +41,12 @@ void cexil_sprite_fill(
 ) {
   for (
     unsigned int y = 0;
-    y < sprite->size.width;
+    y < sprite->size.height;
     ++y
   ) {
     for (
       unsigned int x = 0;
-      x < sprite->size.height;
+      x < sprite->size.width;
       ++x
     ) {
       sprite->pixels[y][x] = 1;
