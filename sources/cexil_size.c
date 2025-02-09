@@ -13,7 +13,8 @@ unsigned char cexil_size_set_to_terminal(
     return 1;
   }
 
-  size->width = (terminal_size.ws_col - 1) * 2;
+  // TODO: Something is weird about this `- 4`
+  size->width = (terminal_size.ws_col - 4) * 2;
   size->height = (terminal_size.ws_row - 1) * 4;
 
   return 0;
