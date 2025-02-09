@@ -36,6 +36,24 @@ void cexil_sprite_initialize(
   sprite->frames = malloc(0);
 }
 
+void cexil_sprite_fill(
+  struct cexil_sprite* sprite
+) {
+  for (
+    unsigned int y = 0;
+    y < sprite->size.width;
+    ++y
+  ) {
+    for (
+      unsigned int x = 0;
+      x < sprite->size.height;
+      ++x
+    ) {
+      sprite->pixels[y][x] = 1;
+    }
+  }
+}
+
 void cexil_sprite_destroy(
   struct cexil_sprite* sprite
 ) {

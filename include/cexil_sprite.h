@@ -18,6 +18,10 @@ void cexil_sprite_initialize(
   struct cexil_size*
 );
 
+void cexil_sprite_fill(
+  struct cexil_sprite*
+);
+
 void cexil_sprite_destroy(
   struct cexil_sprite*
 );
