@@ -5,6 +5,8 @@
 #include <sys/ioctl.h>
 #include <time.h>
 
+#include <stdio.h>
+
 #include "cexil.h"
 
 unsigned char interupted = 0;
@@ -26,7 +28,7 @@ int main() {
 
   struct cexil_renderer renderer;
   struct cexil_size size = {
-    width: (terminal_size.ws_col) * 2,
+    width: (terminal_size.ws_col - 1) * 2,
     height: (terminal_size.ws_row - 1) * 4
   };
 
