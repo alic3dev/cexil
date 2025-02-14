@@ -8,6 +8,8 @@
 #include "cexil_renderer.h"
 #include "cexil_size.h"
 #include "cexil_sprite.h"
+#include "cexil_time.h"
+#include "cexil_timer.h"
 
 #endif
 
