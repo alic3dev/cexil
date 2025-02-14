@@ -34,6 +34,13 @@ void cexil_sprite_initialize(
     }
   }
   sprite->frames = malloc(0);
+
+  sprite->render_offset.x = 0;
+  sprite->render_offset.y = 0;
+  sprite->render_size.width = sprite->size.width;
+  sprite->render_size.height = (
+    sprite->size.height
+  );
 }
 
 void cexil_sprite_fill(
@@ -52,6 +59,31 @@ void cexil_sprite_fill(
       sprite->pixels[y][x] = 1;
     }
   }
+}
+
+void cexil_sprite_render_offset_set(
+  struct cexil_sprite* sprite,
+  struct cexil_position* offset
+) {
+  sprite->render_offset.x = offset->x;
+  sprite->render_offset.y = offset->y;
+}
+
+void cexil_sprite_render_size_set(
+  struct cexil_sprite* sprite,
+  struct cexil_size* size
+) {
+  sprite->render_size.width = size->width;
+  sprite->render_size.height = size->height;
+}
+
+void cexil_sprite_render_set(
+  struct cexil_sprite* sprite,
+  struct cexil_position* offset,
+  struct cexil_size* size
+) {
+  cexil_sprite_render_offset_set(sprite, offset);
+  cexil_sprite_render_size_set(sprite, size);
 }
 
 void cexil_sprite_destroy(
