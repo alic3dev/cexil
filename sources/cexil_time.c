@@ -11,7 +11,9 @@ void cexil_time_initialize(
   cexil_time->timespec.tv_nsec = nano_seconds;
 }
 
-void cexil_time_nanosleep(struct cexil_time* cexil_time) {
+void cexil_time_sleep(
+  struct cexil_time* cexil_time
+) {
   nanosleep(&cexil_time->timespec, (void*)0);
 }
 
