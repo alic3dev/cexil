@@ -7,9 +7,9 @@
 int main() {
   for (unsigned short int p = 0; p < 256; ++p) {
     char pixels[4] = {
-      pixel_mapping[p][0],
-      pixel_mapping[p][1],
-      pixel_mapping[p][2],
+      cexil_pixel_mapping[p][0],
+      cexil_pixel_mapping[p][1],
+      cexil_pixel_mapping[p][2],
       '\0'
     };
 

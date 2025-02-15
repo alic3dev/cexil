@@ -1,6 +1,74 @@
-#include "pixel_mapping.h"
+#include "cexil_pixel_mapping.h"
 
-char pixel_mapping[256][3] = {
+unsigned short int cexil_pixel_group_to_index(
+  unsigned char** pixel_group
+) {
+  unsigned short int pixel_mapping_index = 0;
+
+  if (pixel_group[0][0]) {
+    pixel_mapping_index = (
+      pixel_mapping_index +
+      0b00000001
+    );
+  }
+  
+  if (pixel_group[0][1]) {
+    pixel_mapping_index = (
+      pixel_mapping_index +
+      0b00000010
+    );
+  }
+  
+  if (pixel_group[0][2]) {
+    pixel_mapping_index = (
+      pixel_mapping_index +
+      0b00000100
+    );
+  }
+  
+  if (pixel_group[0][3]) {
+    pixel_mapping_index = (
+      pixel_mapping_index +
+      0b01000000
+    );
+  }
+
+  if (pixel_group[1][0]) {
+    pixel_mapping_index = (
+      pixel_mapping_index +
+      0b00001000
+    );
+  }
+  
+  if (pixel_group[1][1]) {
+    pixel_mapping_index = (
+      pixel_mapping_index +
+      0b00010000
+    );
+  }
+
+  if (pixel_group[1][2]) {
+    pixel_mapping_index = (
+      pixel_mapping_index +
+      0b00100000
+    );
+  }
+
+  if (pixel_group[1][3]) {
+    pixel_mapping_index = (
+      pixel_mapping_index +
+      0b10000000
+    );
+  }
+
+  return pixel_mapping_index;
+}
+
+char cexil_pixel_mapping[
+  CEXIL_PIXEL_MAPPING_LENGTH
+][
+  CEXIL_PIXEL_MAPPING_STRING_LENGTH
+] = {
   "\u2800",
   "\u2801",
   "\u2802",

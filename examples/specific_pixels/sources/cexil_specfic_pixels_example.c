@@ -14,6 +14,7 @@ int main() {
       pixels[x][y] = 0;
     }
   }
+
   pixels[7][7] = 1;
   pixels[7][6] = 1;
   pixels[7][5] = 1;
@@ -21,8 +22,7 @@ int main() {
   pixels[4][7] = 1;
   pixels[4][6] = 1;
   pixels[4][5] = 1;
-  pixels[3][5] = 1;
-  
+  pixels[3][5] = 1;  
   pixels[1][4] = 1;
   pixels[1][3] = 1;
   pixels[0][4] = 1;
@@ -147,9 +147,15 @@ int main() {
         );
       }
       char pixels_string[4] = {
-        pixel_mapping[pixel_mapping_index][0],
-        pixel_mapping[pixel_mapping_index][1],
-        pixel_mapping[pixel_mapping_index][2],
+        cexil_pixel_mapping[
+          pixel_mapping_index
+        ][0],
+        cexil_pixel_mapping[
+          pixel_mapping_index
+        ][1],
+        cexil_pixel_mapping[
+          pixel_mapping_index
+        ][2],
         '\0'
       };
 
