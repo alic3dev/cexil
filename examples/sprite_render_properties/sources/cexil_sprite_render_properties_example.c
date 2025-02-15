@@ -23,15 +23,29 @@ int main() {
     &size_terminal
   );
 
+  struct cexil_size size_repeat = {
+    width: 10,
+    height: 1
+  };
+
   struct cexil_sprite background;
   struct cexil_size size_background = {
-    width: renderer.size.width * 10,
-    height: renderer.size.height
+    width: (
+      renderer.size.width * size_repeat.width
+    ),
+    height: (
+      renderer.size.height * size_repeat.height
+    )
   };
 
   cexil_sprite_initialize(
     &background,
     &size_background
+  );
+ 
+  cexil_sprite_render_size_set(
+    &background,
+    &renderer.size
   );
 
   for (
@@ -61,20 +75,23 @@ int main() {
 
     for (
       unsigned char y = (
-        background.render_size.height -
+        background.size.height -
         stag_height_lower -
         1
       );
-      y < background.render_size.height - 1;
-      ++y) {
-        background.pixels[y][x] = 1;
-      }
-  }
+      y < background.size.height - 1;
+      ++y
+    ) {
+      background.pixels[y][x] = 1;
+    }
 
-  cexil_sprite_render_size_set(
-    &background,
-    &renderer.size
-  );
+    background.pixels[(
+      ((background.size.height / 2) -
+      (size_repeat.width / 2)) +
+      (x / background.render_size.width) +
+      (x % 6 > 2 ? -(x % 3) : (x % 3))
+    ) % background.size.height][x] = 1;
+  }
 
   cexil_renderer_sprite_add(
     &renderer,
@@ -99,11 +116,11 @@ int main() {
       );
 
       if (
-        background.render_offset.x +
-        background.render_size.width >=
-        background.size.width
+        background.render_offset.x >=
+        (background.render_size.width
+         * size_repeat.width)
       ) {
-       background.render_offset.x = 0;
+        background.render_offset.x = 0;
       }
 
       cexil_timer_start(&timer_scroll);
