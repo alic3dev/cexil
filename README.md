@@ -22,11 +22,15 @@ renderer->pixels[6][4]
 
 ### library
 
+You can build the library on its own with the following
+
 ```sh
 make
 ```
 
-### clean
+### cleaning
+
+To clean up all the object files and resulting library file you can use
 
 ```sh
 make clean
@@ -34,19 +38,13 @@ make clean
 
 ### examples
 
-Each example under the `./examples` directory has an individual make file which will build the output into its corresponding `./bin` directory.
-
-You can also build all examples in one shot in the root directory with
+You can build all of the examples in one shot using
 
 ```sh
 make examples
 ```
 
-or you can run the following within the `./examples` directory
-
-```sh
-make
-```
+See [examples/README.md](/examples/README.md) for more details.
 
 ### all
 
