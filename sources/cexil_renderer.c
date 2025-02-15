@@ -221,6 +221,11 @@ void cexil_renderer_sprite_render(
     ++y
   ) {
     unsigned int y_index = sprite->position.y + y;
+    
+    if (y_index >= renderer->size.height) {
+      break;
+    }
+
     unsigned int y_index_sprite = (
       (sprite->render_offset.y + y)
       % sprite->size.height
@@ -234,6 +239,10 @@ void cexil_renderer_sprite_render(
       unsigned int x_index = (
         sprite->position.x + x
       );
+
+      if (x_index >= renderer->size.width) {
+        break;
+      }
 
       renderer->pixels[y_index][x_index] = (
         renderer->pixels[y_index][x_index] +
