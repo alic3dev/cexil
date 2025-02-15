@@ -8,7 +8,7 @@ A terminal based 2D pixel graphics system library.
 
 cexil uses an `[y][x]` coordinate system for efficiency.
 
-This is inverse the standard `[x][y]` coordinates of standard systems.
+This is inverse the standard `[x][y]` coordinates of typical systems.
 
 #### example
 
@@ -36,13 +36,13 @@ make clean
 
 Each example under the `./examples` directory has an individual make file which will build the output into its corresponding `./bin` directory.
 
-You can also build all examples in one shot using in the root directory
+You can also build all examples in one shot in the root directory with
 
 ```sh
 make examples
 ```
 
-or you can run the follwing within the `./examples` directory
+or you can run the following within the `./examples` directory
 
 ```sh
 make
