@@ -30,5 +30,7 @@ To clean all of the examples you can execute the proceeding
 make clean
 ```
 
+## copyright
+
 > ©️ Copyright "alic3dev (2025)" - All rights reserved
 
