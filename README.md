@@ -62,3 +62,4 @@ To clean the library + examples
 make clean_all
 ```
 
+> ©️ Copyright "alic3dev (2025)" - All rights reserved
