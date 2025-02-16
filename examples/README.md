@@ -4,7 +4,11 @@ A collection of example program source code to show how to properly implement an
 
 ## building
 
+### individually
+
 Each example has an individual `makefile` which will build the output into its corresponding `[example_name]/bin` directory when running `make`.
+
+### all
 
 You can also build all of the examples by simply running the following within this directory
 
@@ -25,6 +29,8 @@ To clean all of the examples you can execute the proceeding
 ```sh
 make clean
 ```
+
+## copyright
 
 > ©️ Copyright "alic3dev (2025)" - All rights reserved
 

@@ -28,14 +28,6 @@ You can build the library on its own with the following
 make
 ```
 
-### cleaning
-
-To clean up all the object files and resulting library file you can use
-
-```sh
-make clean
-```
-
 ### examples
 
 You can build all of the examples in one shot using
@@ -54,10 +46,25 @@ To build the library + examples
 make all
 ```
 
+## cleaning
+
+### library
+
+To clean up all the object files and resulting library file you can use
+
+```sh
+make clean
+```
+
+### all
+
 To clean the library + examples
 
 ```sh
 make clean_all
 ```
 
+## copyright
+
 > ©️ Copyright "alic3dev (2025)" - All rights reserved
+
