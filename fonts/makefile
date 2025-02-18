@@ -2,7 +2,7 @@ PROJECT_NAME=cexil_fonts_compilation
 
 CEXIL_FONT_EXTENSION=cexil_font
 
-OUT_DIRECTORY=compiled_fonts
+OUT_DIRECTORY=transpiled_fonts
 
 CEXIL_FONT_FILES=$(wildcard *.$(CEXIL_FONT_EXTENSION))
 CEXIL_FONT_OUT_DIRECTORIES=$(patsubst %.$(CEXIL_FONT_EXTENSION), $(OUT_DIRECTORY)/%, $(CEXIL_FONT_FILES))
