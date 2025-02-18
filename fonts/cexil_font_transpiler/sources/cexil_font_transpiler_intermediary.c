@@ -10,6 +10,7 @@ void cexil_font_transpiler_intermediary_initialize(
   intermediary->characters_count = 0;
   intermediary->size_width = 0;
   intermediary->size_height = 0;
+  intermediary->error = (void*)0;
 }
 
 void cexil_font_transpiler_intermediary_destroy(
@@ -41,5 +42,10 @@ void cexil_font_transpiler_intermediary_destroy(
   }
 
   free(intermediary->characters);
+
+  if (intermediary->error != (void*)0) {
+    free(intermediary->error->message);
+    free(intermediary->error);
+  }
 }
 
