@@ -1,6 +1,7 @@
 #ifndef __CEXIL_FONT_H
 #define __CEXIL_FONT_H
 
+#include "cexil_character_set.h"
 #include "cexil_size.h"
 
 #define CEXIL_FONT_SIZE_WIDTH_DEFAULT 6
