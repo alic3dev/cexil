@@ -2,6 +2,10 @@
 
 #include <stdlib.h>
 
+const char* cexil_font_transpiler_parser_prefix_character_set = "character_set:";
+const char* cexil_font_transpiler_parser_prefix_size_width = "size_width:";
+const char* cexil_font_transpiler_parser_prefix_size_height = "size_height:";
+
 struct cexil_font_transpiler_intermediary* cexil_font_transpiler_parser_parse(
   FILE* file_cexil_font
 ) {

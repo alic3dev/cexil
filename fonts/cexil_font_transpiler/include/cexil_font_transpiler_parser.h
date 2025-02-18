@@ -5,6 +5,10 @@
 
 #include "cexil_font_transpiler_intermediary.h"
 
+extern const char* cexil_font_transpiler_parser_prefix_character_set;
+extern const char* cexil_font_transpiler_parser_prefix_size_width;
+extern const char* cexil_font_transpiler_parser_prefix_size_height;
+
 enum cexil_font_transpiler_parser_mode {
   cexil_font_transpiler_parser_mode_parameters,
   cexil_font_transpiler_parser_mode_characters
