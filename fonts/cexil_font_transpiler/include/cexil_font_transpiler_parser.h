@@ -25,7 +25,8 @@ enum cexil_font_transpiler_parser_parameter {
 extern const char* cexil_font_transpiler_parser_prefixes[CEXIL_FONT_TRANSPILER_PARSER_PARAMETER_COUNT];
 
 struct cexil_font_transpiler_intermediary* cexil_font_transpiler_parser_parse(
-  FILE* file
+  FILE*,
+  char*
 );
 
 #endif
