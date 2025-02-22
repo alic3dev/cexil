@@ -1,0 +1,9 @@
+#ifndef __CEXIL_FONT_TRANSPILER_OPTIONS_H
+#define __CEXIL_FONT_TRANSPILER_OPTIONS_H
+
+extern char cexil_font_transpiler_option_display_basic_info;
+extern char cexil_font_transpiler_option_display_characters;
+extern char cexil_font_transpiler_option_display_characters_numbers;
+
+#endif
+
