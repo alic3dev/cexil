@@ -2,10 +2,14 @@
 
 #include <stdlib.h>
 
+#include "fonts/default/default.h"
+
 void cexil_text_initialize(
   struct cexil_text* cexil_text,
   char* text
 ) {
+  cexil_text->font = &cexil_font_definition_default;
+  
   cexil_text->position.x = 0;
   cexil_text->position.y = 0;
   cexil_text->size.height = 1;

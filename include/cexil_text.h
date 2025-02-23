@@ -6,6 +6,7 @@
 
 struct cexil_text {
   char* text;
+  const struct cexil_font* font;
   unsigned char wrap;
   struct cexil_position position;
   struct cexil_size size;
