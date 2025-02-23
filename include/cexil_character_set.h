@@ -2,7 +2,8 @@
 #define __CEXIL_CHARACTER_SET
 
 enum cexil_character_set {
-  ascii
+  ascii,
+  lower
 };
 
 #endif
