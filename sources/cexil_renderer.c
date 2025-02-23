@@ -303,13 +303,11 @@ void cexil_renderer_text_render(
     text->text[text_index] != '\0';
     ++text_index
   ) {
-    unsigned int character_index = text->text[text_index] - 'a';
+    unsigned int character_index = (text->text[text_index] - 'a') * (text->font->size.height * text->font->size.width);
     
-    char** character = text->font->characters[character_index];
-
     if (text->position.x + text->font->size.width + offset.x >= renderer->size.width) {
       offset.x = 0;
-      offset.y = offset.y + text->font->size.height + 2;
+      offset.y = offset.y + text->font->size.height;
     }
 
     for (
@@ -317,6 +315,7 @@ void cexil_renderer_text_render(
       y_index < text->font->size.height;
       ++y_index
     ) {
+      unsigned int pixel_offset = y_index * text->font->size.width;
       
       for (
         unsigned int x_index = 0;
@@ -331,11 +330,11 @@ void cexil_renderer_text_render(
           text->position.y + y_index + offset.y
         ][
           text->position.x + x_index + offset.x
-        ] + text->font->characters[character_index][y_index][x_index];
+        ] + text->font->characters[character_index + pixel_offset + x_index];
       }
     }
 
-    offset.x = offset.x + text->font->size.width + 1;
+    offset.x = offset.x + text->font->size.width;
   }
 }
 
