@@ -283,10 +283,10 @@ unsigned char cexil_font_transpiler_transpile(
     path_directory_output_final_include_directory_length - 1
   ] = '\0';
   path_directory_output_final_sources_file[
-    path_directory_output_final_sources_file_length - 1
+    path_directory_output_final_sources_file_length - 2
   ] = '\0';
   path_directory_output_final_include_file[
-    path_directory_output_final_include_file_length - 1
+    path_directory_output_final_include_file_length - 2
   ] = '\0';
  
   mkdir_status = mkdir(
