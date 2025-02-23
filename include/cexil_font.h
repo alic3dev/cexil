@@ -6,7 +6,7 @@
 
 struct cexil_font {
   enum cexil_character_set character_set;
-  char* characters;
+  const char* characters;
   struct cexil_size size;
 };
 
