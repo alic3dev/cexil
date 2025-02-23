@@ -428,8 +428,8 @@ unsigned char cexil_font_transpiler_transpile(
     file_directory_output_final_sources_file,
     "\n};\n\n"
     "const struct cexil_font cexil_font_definition_%s = {\n"
-    "  character_set: \"%s\","
-    "  characters: (char**)(\n"
+    "  character_set: %s,"
+    "  characters: (char***)(\n"
     "    cexil_font_definition_%s_characters\n"
     "  ),\n"
     "  size: {\n"
@@ -473,6 +473,7 @@ unsigned char cexil_font_transpiler_transpile(
     file_directory_output_final_include_file,
     "#ifndef __CEXIL_FONT_DEFINITION_%s_H\n"
     "#define __CEXIL_FONT_DEFINITION_%s_H\n\n"
+    "#include \"cexil_font.h\"\n\n"
     "#define CEXIL_FONT_DEFINITION_%s_CHARACTERS_COUNT %u\n"
     "#define CEXIL_FONT_DEFINITION_%s_SIZE_WIDTH %u\n"
     "#define CEXIL_FONT_DEFINITION_%s_SIZE_HEIGHT %u\n\n"
