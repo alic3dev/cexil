@@ -1,6 +1,7 @@
 #ifndef __CEXIL_TEXT_H
 #define __CEXIL_TEXT_H
 
+#include "cexil_font.h"
 #include "cexil_position.h"
 #include "cexil_size.h"
 
