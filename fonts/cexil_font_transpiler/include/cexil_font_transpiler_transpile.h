@@ -1,0 +1,22 @@
+#ifndef __CEXIL_FONT_TRANSPILER_TRANSPILE_H
+#define __CEXIL_FONT_TRANSPILER_TRANSPILE_H
+
+#include "cexil_font_transpiler_intermediary.h"
+
+extern const unsigned int __path_directory_output_final_sources_directory_length;
+extern const unsigned int __path_directory_output_final_include_directory_length;
+extern const unsigned int __path_directory_output_final_sources_file_extension_length;
+extern const unsigned int __path_directory_output_final_include_file_extension_length;
+
+extern const char* __path_directory_output_final_sources_directory;
+extern const char* __path_directory_output_final_include_directory;
+extern const char* __path_directory_output_final_sources_file_extension;
+extern const char* __path_directory_output_final_include_file_extension;
+
+unsigned char cexil_font_transpiler_transpile(
+  struct cexil_font_transpiler_intermediary*,
+  char*
+);
+
+#endif
+
