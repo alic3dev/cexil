@@ -15,7 +15,7 @@ jobs:
     - uses: actions/checkout@v4
 
     - name: build_library
-      run: mkdir -p objects && make
+      run: mkdir -p objects && mkdir -p fonts/cexil_font_transpiler/objects && make
 
     - name: build_examples
       run: make examples
