@@ -19,6 +19,12 @@ void cexil_renderer_initialize(
     sizeof(struct cexil_sprite*) *
     renderer->sprites_length
   );
+
+  renderer->texts_length = 0;
+  renderer->texts = malloc(
+    sizeof(struct cexil_text*) *
+    renderer->texts_length
+  );
 }
 
 void cexil_renderer_size_set(
@@ -51,6 +57,7 @@ void cexil_renderer_render(
   // TODO: Clear on render should be an option
   // cexil_renderer_render_clear(renderer);
   cexil_renderer_render_sprites(renderer);
+  cexil_renderer_render_texts(renderer);
 
   char* buffer;
   unsigned int buffer_length = (
@@ -181,13 +188,28 @@ void cexil_renderer_render_sprites(
   struct cexil_renderer* renderer
 ) {
   for (
-    unsigned int i = 0;
-    i < renderer->sprites_length;
-    ++i
+    unsigned int sprite_index = 0;
+    sprite_index < renderer->sprites_length;
+    ++sprite_index
   ) {
     cexil_renderer_sprite_render(
       renderer,
-      renderer->sprites[i]
+      renderer->sprites[sprite_index]
+    );
+  }
+}
+
+void cexil_renderer_render_texts(
+  struct cexil_renderer* renderer
+) {
+  for (
+    unsigned int text_index = 0;
+    text_index < renderer->texts_length;
+    ++text_index
+  ) {
+    cexil_renderer_text_render(
+      renderer,
+      renderer->texts[text_index]
     );
   }
 }
@@ -255,6 +277,68 @@ void cexil_renderer_sprite_render(
   }
 }
 
+void cexil_renderer_text_add(
+  struct cexil_renderer* renderer,
+  struct cexil_text* text
+) {
+  renderer->texts_length = renderer->texts_length + 1;
+  renderer->texts = realloc(
+    renderer->texts,
+    sizeof(struct cexil_text*) * renderer->texts_length
+  );
+
+  renderer->texts[renderer->texts_length - 1] = text;
+}
+
+void cexil_renderer_text_render(
+  struct cexil_renderer* renderer,
+  struct cexil_text* text
+) {
+  struct cexil_position offset;
+  offset.x = 0;
+  offset.y = 0;
+
+  for (
+    unsigned int text_index = 0;
+    text->text[text_index] != '\0';
+    ++text_index
+  ) {
+    unsigned int character_index = text->text[text_index] - 'a';
+    
+    char** character = text->font->characters[character_index];
+
+    if (text->position.x + text->font->size.width + offset.x >= renderer->size.width) {
+      offset.x = 0;
+      offset.y = offset.y + text->font->size.height + 2;
+    }
+
+    for (
+      unsigned int y_index = 0;
+      y_index < text->font->size.height;
+      ++y_index
+    ) {
+      
+      for (
+        unsigned int x_index = 0;
+        x_index < text->font->size.width;
+        ++x_index
+      ) {
+        renderer->pixels[
+          text->position.y + y_index + offset.y
+        ][
+          text->position.x + x_index + offset.x
+        ] = renderer->pixels[
+          text->position.y + y_index + offset.y
+        ][
+          text->position.x + x_index + offset.x
+        ] + text->font->characters[character_index][y_index][x_index];
+      }
+    }
+
+    offset.x = offset.x + text->font->size.width + 1;
+  }
+}
+
 void cexil_renderer_destroy(
   struct cexil_renderer* renderer
 ) {
@@ -275,5 +359,15 @@ void cexil_renderer_destroy(
     cexil_sprite_destroy(renderer->sprites[i]);
   }
   free(renderer->sprites);
+
+  for (
+    unsigned int text_index = 0;
+    text_index < renderer->texts_length;
+    ++text_index
+  ) {
+    cexil_text_destroy(renderer->texts[text_index]);
+  }
+
+  free(renderer->texts);
 }
 
