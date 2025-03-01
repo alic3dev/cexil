@@ -297,13 +297,27 @@ void cexil_renderer_text_render(
   struct cexil_position offset;
   offset.x = 0;
   offset.y = 0;
+  
+  struct cexil_position position_pixels;
+  position_pixels.x = 0;
+  position_pixels.y = 0;
 
+  unsigned int character_y_offset = 0;
+  
   for (
     unsigned int text_index = 0;
     text->text[text_index] != '\0';
     ++text_index
   ) {
-    unsigned int character_index = (text->text[text_index] - 'a') * (text->font->size.height * text->font->size.width);
+    signed int character_index = cexil_font_character_index_get(
+      text->font,
+      text->text[text_index]
+    ); 
+    
+    if (character_index < 0) {
+      offset.x = offset.x + text->font->size.width;
+      continue;
+    }
     
     if (text->position.x + text->font->size.width + offset.x >= renderer->size.width) {
       offset.x = 0;
@@ -315,22 +329,28 @@ void cexil_renderer_text_render(
       y_index < text->font->size.height;
       ++y_index
     ) {
-      unsigned int pixel_offset = y_index * text->font->size.width;
+      position_pixels.y = text->position.y + y_index + offset.y;
+      character_y_offset = y_index * text->font->size.width;
+
+      if (position_pixels.y >= renderer->size.height) {
+        break;
+      }
       
       for (
         unsigned int x_index = 0;
         x_index < text->font->size.width;
         ++x_index
       ) {
-        renderer->pixels[
-          text->position.y + y_index + offset.y
-        ][
-          text->position.x + x_index + offset.x
-        ] = renderer->pixels[
-          text->position.y + y_index + offset.y
-        ][
-          text->position.x + x_index + offset.x
-        ] + text->font->characters[character_index + pixel_offset + x_index];
+        position_pixels.x = text->position.x + x_index + offset.x;
+  
+        if (position_pixels.x >= renderer->size.width) {
+          break;
+        }
+
+        renderer->pixels[position_pixels.y][position_pixels.x] = (
+          renderer->pixels[position_pixels.y][position_pixels.x] + 
+          text->font->characters[character_index + character_y_offset + x_index]
+        );
       }
     }
 
