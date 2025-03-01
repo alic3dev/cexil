@@ -18,6 +18,11 @@ void cexil_text_initialize(
   char*
 );
 
+void cexil_text_text_set(
+  struct cexil_text*,
+  char*
+);
+
 void cexil_text_destroy(
   struct cexil_text*
 );

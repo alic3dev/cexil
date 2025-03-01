@@ -8,8 +8,6 @@ struct cexil_timer {
   struct timeval time_ending;  
 };
 
-void cexil_timer_initialize(struct cexil_timer*);
-
 void cexil_timer_start(struct cexil_timer*);
 void cexil_timer_stop(struct cexil_timer*);
 

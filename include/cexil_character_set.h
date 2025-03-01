@@ -6,5 +6,10 @@ enum cexil_character_set {
   lower
 };
 
+signed int cexil_character_set_index_get(
+  enum cexil_character_set,
+  char
+);
+
 #endif
 

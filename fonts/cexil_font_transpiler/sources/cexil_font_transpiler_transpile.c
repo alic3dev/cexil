@@ -428,16 +428,19 @@ unsigned char cexil_font_transpiler_transpile(
     file_directory_output_final_sources_file,
     "\n};\n\n"
     "const struct cexil_font cexil_font_definition_%s = {\n"
-    "  character_set: %s,"
+    "  character_set: %s,\n"
     "  characters: cexil_font_definition_%s_characters[0][0],\n"
     "  size: {\n"
     "    width: CEXIL_FONT_DEFINITION_%s_SIZE_WIDTH,\n"
     "    height: CEXIL_FONT_DEFINITION_%s_SIZE_HEIGHT\n"
-    "  }\n"
+    "  },\n"
+    "  size_total: CEXIL_FONT_DEFINITION_%s_SIZE_WIDTH * CEXIL_FONT_DEFINITION_%s_SIZE_HEIGHT\n"
     "};\n\n",
     name_lower,
     intermediary->character_set,
     name_lower,
+    name_upper,
+    name_upper,
     name_upper,
     name_upper
   );
