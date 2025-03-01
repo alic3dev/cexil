@@ -48,6 +48,19 @@ int main() {
     &text
   );
 
+  struct cexil_text text_long;
+  cexil_text_initialize(
+    &text_long,
+    "this is a long line of text that can either be truncated or set to wrap around the screen"
+  );
+
+  text_long.position.y = text_long.font->size.height * 2;
+
+  cexil_renderer_text_add(
+    &renderer,
+    &text_long
+  );
+
   struct timespec frame_time = { 0, 25000000 };
   
   while (interupted == 0) {
