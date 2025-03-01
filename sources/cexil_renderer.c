@@ -320,8 +320,12 @@ void cexil_renderer_text_render(
     }
     
     if (text->position.x + text->font->size.width + offset.x >= renderer->size.width) {
+      if (text->wrap == 0) {
+        break;
+      }
+
       offset.x = 0;
-      offset.y = offset.y + text->font->size.height;
+      offset.y = offset.y + text->font->size.height + 1;
     }
 
     for (
