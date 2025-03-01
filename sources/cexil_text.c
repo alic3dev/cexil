@@ -17,6 +17,18 @@ void cexil_text_initialize(
 
   cexil_text->wrap = 0;
 
+  cexil_text->text = (void*)0;
+
+  cexil_text_text_set(
+    cexil_text,
+    text
+  );
+}
+
+void cexil_text_text_set(
+  struct cexil_text* cexil_text,
+  char* text
+) { 
   unsigned int length = 0;
 
   while (text[length] != '\0') {
@@ -24,9 +36,16 @@ void cexil_text_initialize(
   }
   length = length + 1;
 
-  cexil_text->text = malloc(
-    sizeof(char) * length
-  );
+  if (cexil_text->text != (void*)0) {
+    cexil_text->text = realloc(
+      cexil_text->text,
+      sizeof(char) * length
+    );
+  } else {
+    cexil_text->text = malloc(
+      sizeof(char) * length
+    );
+  }
 
   for (
     unsigned int character_index = 0;
